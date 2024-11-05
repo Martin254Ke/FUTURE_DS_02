@@ -22,8 +22,10 @@ Clone the repository.
 Ensure all dependencies in requirements.txt are installed.
 Run the Jupyter notebooks to view data preprocessing, EDA, and model training.
 Adjust parameters and explore different models to see how they perform on the dataset.
+
 📂 Files Included
 loan.csv: Dataset used for model training and analysis.
 notebooks/: Contains Jupyter notebooks with all data analysis and modeling steps.
+
 📈 Results
 The Naive Bayes Classifier outperformed the Decision Tree, achieving an accuracy of 82%. This result highlights the importance of model selection in predicting loan eligibility effectively.
