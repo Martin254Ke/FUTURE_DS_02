@@ -1,0 +1,57 @@
+#import necessary libraries to use
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+#import the csv data using pandas
+loan=pd.read_csv('loan.csv')
+#get to know the columns header 
+loan.head()
+#understand the total rows and column
+loan.shape
+##get more information on the data, the missing values and the data type
+loan.info()
+loan.describe()
+#perform a cross tab to see how the credit history affect each loan status of each applicant
+crosstab=pd.crosstab(loan['Credit_History'],loan['Loan_Status'],margins=True)
+#identify mean meadian and mode of Applicantincome using Boxplot
+boxplot=loan.boxplot(column='ApplicantIncome')
+##perform a histogram on the Coapplicant income
+loan['CoapplicantIncome'].hist(bins=20)
+#perform a boxplot on ApplicationIncome when grouped by Education
+loan.boxplot(column='ApplicantIncome',by='Education')
+##perform a boxplot on th LoanAmount
+loan.boxplot(column='LoanAmount')
+##draw a histogram on loanamount
+loan['LoanAmount'].hist(bins=20)
+##how to normalize the loanamount using log function
+loan['LoanAmount_log']=np.log(loan['LoanAmount'])
+loan['LoanAmount_log'].hist(bins=20)
+##CHECK HOW MANY MISSING VALUES ARE THERE IN THE DATA SET
+loan.isnull().sum()
+##how to fill up missing values
+#the following are categorical variables hence we will use the mode to replace the missing values
+#Gender
+loan['Gender'].fillna(loan['Gender'].mode()[0],inplace=True)
+#Married
+loan['Married'].fillna(loan['Married'].mode()[0],inplace=True)
+#Dependents 
+loan['Dependents'].fillna(loan['Dependents'].mode()[0],inplace=True)
+##handling missing values 
+##if the data is categorical we use mode if the data is continious we use mean
+testdata['Gender'].fillna(testdata['Gender'].mode()[0],inplace=True)
+testdata['Married'].fillna(testdata['Married'].mode()[0],inplace=True)
+testdata['Dependents'].fillna(testdata['Dependents'].mode()[0],inplace=True)
+testdata['Self_Employed'].fillna(testdata['Self_Employed'].mode()[0],inplace=True)
+testdata['Loan_Amount_Term'].fillna(testdata['Loan_Amount_Term'].mode()[0],inplace=True)
+##in order to have a smooth prediction we will have to skewed the data
+#we will start with test.
+from sklearn.preprocessing import StandardScaler
+ss=StandardScaler()
+test=ss.fit_transform(t)
+##time to predict which are eligiable for the loan
+##i will use the naive bayes classifier 
+from sklearn.naive_bayes import GaussianNB
+NBClassifier = GaussianNB()
+test=ss.fit_transform(test)
+pred= NBClassifier.predict(test)
