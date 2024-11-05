@@ -8,14 +8,15 @@ The goal of this project is to classify applicants as eligible or ineligible for
 🔑 Key Steps & Techniques
 Data Cleaning & Preprocessing: Handled missing values, normalized skewed distributions, and converted categorical variables into numerical format for optimal model performance.
 Exploratory Data Analysis (EDA): Visualized income distributions, credit history impact, and other trends with histograms, cross-tabulations, and box plots.
-Modeling & Evaluation:
-Decision Tree Classifier: Trained an initial model, achieving an accuracy of 67%.
+Modeling & Evaluation: Decision Tree Classifier: Trained an initial model, achieving an accuracy of 67%.
 Naive Bayes Classifier: Improved accuracy to 82%, showcasing its effectiveness on this dataset.
 Clustering with KMeans: Added KMeans clustering for segmentation, offering another layer of insights into applicant categories.
+
 🛠 Tools and Libraries
 Pandas and Numpy for data manipulation
 Matplotlib for data visualization
 Scikit-Learn for machine learning models (Decision Tree, Naive Bayes, KMeans)
+
 🚀 How to Use
 Clone the repository.
 Ensure all dependencies in requirements.txt are installed.
